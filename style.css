@@ -966,5 +966,29 @@ footer {
 .menu-mobile-btn {
   display: none;
 }
+/* Esconde o botão no desktop */
+.menu-mobile-btn {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mostra o botão no mobile */
+@media (max-width: 768px) {
+  .menu-mobile-btn {
+    display: block;
+  }
+
+  .menu-desktop ul {
+    display: none; /* esconde o menu padrão */
+    flex-direction: column;
+  }
+
+  .menu-desktop ul.ativo {
+    display: flex; /* mostra quando o botão for clicado */
+  }
+}
 
 
