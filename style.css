@@ -1,0 +1,970 @@
+/* ===== RESET BÁSICO ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== FUNDO ESFUMAÇADO GLOBAL ===== */
+body::before {
+    content: "";
+    position: fixed;
+    top: -150px;
+    left: -150px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139, 139, 139, 0.6), transparent 70%);
+    filter: blur(180px);
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -150px;
+    right: -150px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(79, 79, 80, 0.6), transparent 70%);
+    filter: blur(180px);
+    z-index: -1;
+}
+
+/* ===== Fundo estilo cimento queimado com leve fumaça ===== */
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.25), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.25), transparent 60%),
+        url('img/fundo-cimento.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-top: 100px; /* para compensar header fixo */
+}
+
+/* ===== HEADER ===== */
+header {
+    width: 100%;
+    background-color: rgba(167, 167, 167, 0.459);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    left: 0;
+}
+
+.interface {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ===== LOGO ===== */
+.logo {
+    margin-left: -20px;
+}
+
+.logo img {
+    width: 110px;
+    height: auto;
+    display: block;
+}
+
+/* ===== MENU ===== */
+.menu-desktop ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+
+.menu-desktop a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.menu-desktop a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: #333;
+    transition: width 0.3s ease;
+}
+
+.menu-desktop a:hover {
+    color: #111;
+}
+
+.menu-desktop a:hover::after {
+    width: 100%;
+}
+
+/* ===== BOTÃO CONTATO ===== */
+.btn-contato button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-contato button:hover {
+    background-color: #666;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== SEÇÃO SOBRE ===== */
+.sobre {
+    padding: 80px 40px;
+    background-color: rgba(255, 255, 255, 0.582);
+    backdrop-filter: blur(4px);
+    border-radius: 15px;
+    margin: 40px auto;
+    max-width: 1200px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.sobre-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* ===== Imagem redonda ===== */
+.sobre-img {
+    flex: 0 0 250px;
+    position: relative;
+}
+
+.sobre-img img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    box-shadow: 0 0 25px rgba(70, 70, 73, 0.514);
+}
+
+.sobre-img img:hover {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+    box-shadow: 0 0 35px rgba(106, 106, 107, 0.5);
+}
+
+/* ===== Texto ===== */
+.sobre-texto {
+    flex: 1;
+}
+
+.sobre-texto h2 {
+    font-size: 2rem;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+.sobre-texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ===== HERO ===== */
+.hero {
+    padding: 40px 20px 100px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+.container-hero {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: #444;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* ===== Seções de contato e outros estilos já existentes abaixo permanecem iguais ===== */
+
+
+/* Botões */
+.hero-buttons a {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-preto {
+    background-color: #1b1b1b;
+    color: white;
+}
+
+.btn-preto:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+.btn-branco {
+    border: 2px solid #1b1b1b;
+    color: #1b1b1b;
+    background-color: transparent;
+}
+
+.btn-branco:hover {
+    background-color: #1b1b1b;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Logo menor na seção Hero */
+.hero-logo {
+    width: 400px;  /* reduz o tamanho da logo */
+    height: auto;
+    display: block;
+    margin: 0 auto 25px auto; /* centraliza e adiciona espaçamento embaixo */
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    box-shadow: 0 0 15px rgba(100, 100, 100, 0.4);
+    border-radius: 8px;
+}
+
+
+.contato-endereco {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+  padding: 60px 10%;
+  flex-wrap: wrap;
+}
+
+.contato, .endereco {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contato h2, .endereco h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.contato p, .endereco p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #222;
+}
+/* Ícone do Instagram redondo */
+.instagram-link {
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.instagram-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* deixa redondo */
+  border: 2px solid rgba(31, 30, 31, 0.6); /* roxinho suave combinando com o tema */
+  padding: 6px;
+  background: rgb(165, 165, 165);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 6px rgba(37, 37, 37, 0.4));
+}
+
+.instagram-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(22, 22, 22, 0.6);
+  filter: brightness(1.1);
+}
+
+
+.endereco iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .contato-endereco {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .instagram-link {
+    justify-content: center;
+  }
+}
+.whatsapp-container {
+  width: 420px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(56, 56, 56, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.whatsapp-container h2 {
+  color: #0c0c0c;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.whatsapp-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.whatsapp-container input,
+.whatsapp-container textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(80, 80, 80, 0.3);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* fundo mais claro visível */
+  color: #111; /* texto escuro */
+  font-size: 15px;
+}
+
+.whatsapp-container input::placeholder,
+.whatsapp-container textarea::placeholder {
+  color: #555; /* placeholder cinza escuro, legível */
+}
+.whatsapp-container input:focus,
+.whatsapp-container textarea:focus {
+  outline: none;
+  border-color: #2b2b2b; /* roxinho do seu tema */
+  box-shadow: 0 0 8px rgba(99, 99, 99, 0.3);
+}
+
+
+.btn-whatsapp {
+  background: linear-gradient(90deg, #5e5e5e, #3d3d3d);
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-whatsapp:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #4c4c4d, #2e2e2e);
+}
+
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #3b3b3b;
+  transition: 0.3s;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #333333;
+}
+/* ======= Seção de Serviços ======= */
+#servicos {
+  padding: 80px 40px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.582); /* igual à seção Sobre */
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  margin: 40px auto;
+  max-width: 1200px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+#servicos h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 15px;
+}
+
+#servicos .linha {
+  width: 60px;
+  height: 3px;
+  background-color: #464646;
+  margin: 0 auto 40px;
+  border-radius: 2px;
+}
+
+/* Container geral dos serviços */
+.servicos-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Cada item de serviço */
+.servico {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 20px 25px;
+  color: #222;
+  font-weight: 600;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+}
+
+.servico:hover {
+  transform: scale(1.03);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .servicos-container {
+    grid-template-columns: 1fr;
+  }
+
+  .servico {
+    text-align: center;
+  }
+}
+/* ======= Seção de Facilidades ======= */
+#facilidades {
+  padding: 80px 40px;
+  background-color: rgba(255, 255, 255, 0.582);
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  margin: 40px auto;
+  max-width: 1200px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+#facilidades h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+#facilidades .linha {
+  width: 60px;
+  height: 3px;
+  background-color: #464646;
+  margin: 0 auto 40px;
+  border-radius: 2px;
+}
+
+.facilidades-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 35px;
+  justify-items: center;
+}
+
+.facilidade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #222;
+  font-size: 1rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.facilidade:hover {
+  transform: translateY(-5px);
+  filter: brightness(1.1);
+}
+
+.icon-facilidade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 2px solid #222;
+  font-size: 22px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(100, 100, 100, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.facilidade:hover .icon-facilidade {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(70, 70, 70, 0.4);
+}
+/* ======= Rodapé ======= */
+footer {
+  background-color: rgba(117, 117, 117, 0.315);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+  padding: 25px 0;
+  text-align: center;
+  margin-top: 60px;
+  border-radius: 15px 15px 0 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Ícone do Instagram */
+.footer-instagram {
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: rgba(165, 165, 165, 0.8);
+  border: 2px solid rgba(31, 30, 31, 0.6);
+  padding: 6px;
+  filter: drop-shadow(0 0 6px rgba(37, 37, 37, 0.4));
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.footer-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(22, 22, 22, 0.6);
+  filter: brightness(1.1);
+}
+
+/* Texto do crédito */
+.footer-credit {
+  font-size: 1rem;
+  color: #111;
+  font-weight: 500;
+}
+
+.footer-credit span {
+  font-weight: 600;
+  color: #1b1b1b;
+}
+.icone-redondo {
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0; /* Altere conforme necessário */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.icone-redondo:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.icone-redondo img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.icone-redondo {
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0; /* Cor de fundo do círculo */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.icone-redondo:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.icone-redondo img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.legenda-foto {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #555;
+  font-style: italic;
+  text-align: center;
+}
+.projetos {
+  position: relative;
+  padding: 40px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.projetos h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #000;
+}
+
+/* container horizontal */
+.container-projetos {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.projeto {
+  position: relative;
+  min-width: 250px;
+  height: 160px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.projeto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.projeto:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* setas */
+.seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.3s;
+}
+
+.seta:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.seta.esquerda {
+  left: 10px;
+}
+
+.seta.direita {
+  right: 10px;
+}
+
+/* lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.fechar {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+/* ========================= */
+/*   RESPONSIVIDADE GERAL    */
+/* ========================= */
+
+/* ----- Tablets ----- */
+@media (max-width: 992px) {
+  .interface {
+    padding: 15px 20px;
+  }
+
+  .hero-logo {
+    width: 280px;
+  }
+
+  .sobre-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre-img img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .sobre-texto h2 {
+    font-size: 1.8rem;
+  }
+
+  .container-projetos {
+    gap: 15px;
+  }
+
+  .projeto {
+    min-width: 200px;
+    height: 130px;
+  }
+
+  iframe {
+    height: 250px;
+  }
+}
+
+/* ----- Celulares ----- */
+@media (max-width: 768px) {
+  /* Menu hamburguer */
+  .menu-desktop {
+    display: none;
+  }
+
+  header {
+    padding: 10px 20px;
+  }
+
+  .btn-contato {
+    display: none;
+  }
+
+  /* Criando botão de menu (hambúrguer) */
+  .menu-mobile-btn {
+    display: block;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #111;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .hero-logo {
+    width: 220px;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons a {
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+  }
+
+  /* Sobre */
+  .sobre {
+    padding: 60px 25px;
+  }
+
+  .sobre-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre-img {
+    margin-bottom: 25px;
+  }
+
+  /* Projetos */
+  .projetos {
+    padding: 30px 10px;
+  }
+
+  .seta {
+    padding: 8px 10px;
+  }
+
+  .projeto {
+    min-width: 180px;
+    height: 120px;
+  }
+
+  /* Serviços e facilidades */
+  #servicos, #facilidades {
+    padding: 60px 25px;
+  }
+
+  .servico {
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .facilidades-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contato e localização */
+  .contato-endereco {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  .whatsapp-container {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 220px;
+  }
+
+  /* Rodapé */
+  footer {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+/* ----- Celulares muito pequenos ----- */
+@media (max-width: 480px) {
+  .hero-logo {
+    width: 180px;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .sobre-texto p {
+    font-size: 0.95rem;
+  }
+
+  .projeto {
+    min-width: 150px;
+    height: 100px;
+  }
+
+  .whatsapp-container {
+    padding: 20px;
+  }
+
+  .btn-whatsapp {
+    font-size: 0.9rem;
+  }
+}
+.menu-desktop ul.ativo {
+  display: flex !important;
+  flex-direction: column;
+  background: rgba(255,255,255,0.95);
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  gap: 15px;
+}
+
+.menu-mobile-btn {
+  display: none;
+}
+
+

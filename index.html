@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfólio | Francis Campagnolo</title>
+    <button class="menu-mobile-btn" onclick="document.querySelector('.menu-desktop ul').classList.toggle('ativo')">☰</button>
+</head>
+<body>
+    
+<!-- Cabeçalho fixo com logo e menu -->
+<header>
+    <div class="interface">
+        <div class="logo">
+            <a href="#inicio">
+            </a>
+        </div>
+
+        <nav class="menu-desktop">
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Nossos serviços</a></li>
+                <li><a href="#facilidades">Facilidades</a></li>
+                <li><a href="#contato">Entre em contato | Localização</a></li>
+            </ul>
+        </nav>
+
+        <div class="btn-contato">
+            <a href="#contato">
+                <button>Contato</button>
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Seção Hero - Engenharia Civil -->
+<section id="inicio" class="hero">
+    <div class="container-hero">
+        <img src="img/logo.jpeg" alt="logo francis" class="hero-logo">
+        <p>Projetos residenciais, comerciais e industriais com foco em qualidade e segurança. Experiência, técnica e responsabilidade em cada detalhe.</p>
+        <div class="hero-buttons">
+            <a href="#projetos" class="btn-preto">Ver projetos</a>
+            <a href="#contato" class="btn-branco">Solicitar orçamento</a>
+        </div>
+    </div>
+</section>
+
+<!-- Seção Sobre -->
+<section id="sobre" class="sobre">
+    <div class="sobre-container">
+        <div class="sobre-img">
+            <img src="img/perfil.jpeg" alt="perfil">
+            <p class="legenda-foto">Eng. Francis Campagnolo</p>
+        </div>
+        <div class="sobre-texto">
+            <h2>SOBRE</h2>
+            <p>
+                Sou engenheiro civil com experiência em projetos, execução e gerenciamento de obras, atuando sempre com foco em eficiência técnica, segurança e sustentabilidade.
+
+                Acredito que cada construção deve unir qualidade, estilo e funcionalidade, por isso aplico práticas modernas da engenharia civil para garantir resultados precisos e duradouros.
+            </p>
+            <p>
+                À frente da Francis Campagnolo Engenharia, acompanho todas as etapas do processo construtivo — do projeto à entrega — oferecendo soluções personalizadas que atendem às necessidades de cada cliente.
+
+                Seja para obras residenciais, comerciais ou institucionais, meu compromisso é transformar ideias em construções sólidas, seguras e únicas.
+            </p>
+        </div>
+    </div>
+</section>
+<section class="projetos" id="projetos">
+  <h2>MEUS PROJETOS</h2>
+
+  <!-- Botões de navegação -->
+  <button class="seta esquerda">&#10094;</button>
+  <button class="seta direita">&#10095;</button>
+
+  <div class="container-projetos">
+    <div class="projeto"><img src="img/projeto1.png" alt="Projeto 1"></div>
+    <div class="projeto"><img src="img/projeto2.png" alt="Projeto 2"></div>
+    <div class="projeto"><img src="img/projeto3.png" alt="Projeto 3"></div>
+    <div class="projeto"><img src="img/projeto4.png" alt="Projeto 4"></div>
+    <div class="projeto"><img src="img/projeto5.png" alt="Projeto 5"></div>
+    <div class="projeto"><img src="img/projeto6.png" alt="Projeto 6"></div>
+    <div class="projeto"><img src="img/projeto7.png" alt="Projeto 7"></div>
+    <div class="projeto"><img src="img/projeto8.png" alt="Projeto 8"></div>
+    <div class="projeto"><img src="img/projeto9.png" alt="Projeto 9"></div>
+    <div class="projeto"><img src="img/projeto10.png" alt="Projeto 10"></div>
+    <div class="projeto"><img src="img/projeto11.png" alt="Projeto 11"></div>
+    <div class="projeto"><img src="img/projeto12.png" alt="Projeto 12"></div>
+    <div class="projeto"><img src="img/projeto13.png" alt="Projeto 13"></div>
+    <div class="projeto"><img src="img/projeto14.png" alt="Projeto 14"></div>
+    <div class="projeto"><img src="img/projeto15.png" alt="Projeto 15"></div>
+    <div class="projeto"><img src="img/projeto16.png" alt="Projeto 16"></div>
+    <div class="projeto"><img src="img/projeto17.png" alt="Projeto 17"></div>
+    <div class="projeto"><img src="img/projeto18.png" alt="Projeto 18"></div>
+    <div class="projeto"><img src="img/projeto19.png" alt="Projeto 19"></div>
+  </div>
+
+  <!-- Lightbox (imagem ampliada) -->
+  <div id="lightbox" class="lightbox">
+    <span class="fechar">&times;</span>
+    <img class="lightbox-img" src="" alt="Imagem ampliada">
+  </div>
+</section>
+
+<!-- JavaScript -->
+<script>
+  const container = document.querySelector('.container-projetos');
+  const setaDireita = document.querySelector('.seta.direita');
+  const setaEsquerda = document.querySelector('.seta.esquerda');
+  const projetos = document.querySelectorAll('.projeto img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.querySelector('.lightbox-img');
+  const fechar = document.querySelector('.fechar');
+
+  // movimentar carrossel
+  setaDireita.addEventListener('click', () => {
+    container.scrollBy({ left: 300, behavior: 'smooth' });
+  });
+
+  setaEsquerda.addEventListener('click', () => {
+    container.scrollBy({ left: -300, behavior: 'smooth' });
+  });
+
+  // abrir imagem no lightbox
+  projetos.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+    });
+  });
+
+  // fechar lightbox
+  fechar.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  // fechar clicando fora da imagem
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+</script>
+
+  </div>
+</section>
+
+<!-- Seção Serviços -->
+<section id="servicos">
+    <h2>NOSSOS SERVIÇOS</h2>
+    <div class="linha"></div>
+
+    <div class="servicos-box">
+        <div class="servicos-container">
+            <div class="servico">Projeto Residencial</div>
+            <div class="servico">Maquete eletrônica em 3D</div>
+            <div class="servico">Execução de Obras</div>
+            <div class="servico">Regularização de Imóveis</div>
+            <div class="servico">Projeto Estrutural</div>
+            <div class="servico">Documento Financiamento</div>
+            <div class="servico">Administração de Obras</div>
+            <div class="servico">Projeto Prevenção Contra Incêndio</div>
+            <div class="servico">Avaliação de Imóveis</div>
+            <div class="servico">Projeto de Interiores</div>
+        </div>
+    </div>
+</section>
+
+<!-- Seção Facilidades -->
+<section id="facilidades">
+    <h2>Facilidades</h2>
+    <div class="linha"></div>
+
+    <div class="facilidades-container">
+        <div class="facilidade">
+            <span class="icon-facilidade">★</span>
+            <p>Atendimento com hora marcada</p>
+        </div>
+        <div class="facilidade">
+            <span class="icon-facilidade">★</span>
+            <p>Consulta grátis</p>
+        </div>
+        <div class="facilidade">
+            <span class="icon-facilidade">★</span>
+            <p>Wi-Fi nas instalações</p>
+        </div>
+        <div class="facilidade">
+            <span class="icon-facilidade">★</span>
+            <p>Estacionamento disponível</p>
+        </div>
+        <div class="facilidade">
+            <span class="icon-facilidade">💳</span>
+            <p>Aceitamos cartões de débito & crédito</p>
+        </div>
+        <div class="facilidade">
+            <span class="icon-facilidade">⏰</span>
+            <p>Disponibilidade 24h</p>
+        </div>
+    </div>
+</section>
+
+<!-- Seção Contato e Localização -->
+<section id="contato" class="contato-endereco">
+    <div class="contato">
+        <h2>ENTRE EM CONTATO</h2>
+        <p><strong>Celular:</strong> (55) 99144-4558</p>
+        <p><strong>E-mail:</strong> francis_campagnolo@hotmail.com</p>
+
+        <section class="whatsapp-container">
+            <h2>Envie uma mensagem</h2>
+
+            <form id="whatsappForm">
+                <input type="text" id="nome" placeholder="Nome" required>
+                <textarea id="mensagem" placeholder="Digite sua Mensagem" required></textarea>
+
+                <button type="submit" class="btn-whatsapp">Enviar WhatsApp</button>
+            </form>
+
+            <div class="redes-sociais">
+                <a href="https://www.instagram.com/eng.franciscampagnolo/" target="_blank">
+                    <img src="img/instagram.jpeg" alt="Instagram" class="icon">
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div class="endereco">
+        <h2>Localização</h2>
+        <p>Rua mariz de barros, 138</p>
+        <p>Palmeira das Missões - RS, 98300-000</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2832.843478241032!2d-53.31332172542615!3d-27.897905035085024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94fc8b53edda5313%3A0xfe60dea9d719c404!2sR.%20Mariz%20de%20Barros%20-%20Palmeira%20das%20Miss%C3%B5es%2C%20RS%2C%2098300-000!5e1!3m2!1spt-BR!2sbr!4v1760625048305!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+<footer style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+    <p style="margin: 0;">DESENVOLVEDORA: Leidiane Capeletti</p>
+    <!-- Ícone com imagem personalizada e link -->
+    <a href="https://www.instagram.com/neguinhacapeletti/" target="_blank" style="text-decoration: none;">
+        <div class="icone-redondo">
+            <img src="img/instagram.jpeg" alt="Instagram" style="width: 24px; height: 24px;">
+        </div>
+    </a>
+</footer>
+
+
+
+</body>
+</html>
